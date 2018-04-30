@@ -3,4 +3,4 @@
    "client_addr": "0.0.0.0",
 {% set comma = joiner(",") %}
    "retry_join": [{% for host in server_list %}{% if host != inventory_hostname %}{{ comma() }}"{{host}}"{% endif %}{% endfor %}]
-]
+}
