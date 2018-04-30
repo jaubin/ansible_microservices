@@ -3,3 +3,7 @@ yum_repo_url: http://nexus:8081/repository/rpm_releases/
 
 # The user used to log onto servers.
 remote_user: app-admin
+
+# The confluent version used
+# Check the versions for which you have a repo declared.
+confluent_version: 4.1

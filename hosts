@@ -6,3 +6,8 @@ zookeeper2
 zookeeper3
 avro1
 avro2
+
+[zookeeper]
+zookeeper1
+zookeeper2
+zookeeper3

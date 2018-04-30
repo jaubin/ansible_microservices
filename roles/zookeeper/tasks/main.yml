@@ -1,0 +1,4 @@
+- name: Install Zookeeper
+  yum: 
+    name: "confluent-{{confluent_version}}-zookeeper"
+    state: latest
