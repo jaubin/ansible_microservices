@@ -11,3 +11,7 @@ confluent_version: 4.1
 # The Zookeeper port
 # Change it if necessary
 zookeeper_port: 2181
+
+# Set this flag to true if you want services to be automatically started
+# after installation.
+auto_start_services: false

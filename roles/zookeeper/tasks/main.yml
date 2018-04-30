@@ -18,3 +18,13 @@
     src: ../templates/zookeeper.properties.j2
     dest: /etc/kafka/zookeeper.properties
     
+- name: Assign ID to each Zookeeper instance
+  shell: "echo {{groups.zookeeper.index(inventory_hostname) + 1}} > {{data_dir}}/myid"
+  
+- name: Start Zookeeper
+  service:
+    name: confluent-zookeeper
+    enabled: yes
+    state: started
+  when: auto_start_services
+    
