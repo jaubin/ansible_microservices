@@ -34,5 +34,7 @@ sudo yum -y install ansible
 sudo mkdir ~app-admin/.ansible
 sudo chown -R app-admin:app-admin ~app-admin/.ansible
 ```
+Note that you must ensure that your Docker containers can reach Internet, as the playbook will install packages from YUM repos. Linux users will also need to reconfigure their firewall to allow
+network communications from / to the containers.
 
 Happy hacking !
