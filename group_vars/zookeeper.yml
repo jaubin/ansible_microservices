@@ -1,3 +1,9 @@
 # The data directory used for Zookeeper
 # You're actually unlikely to change it.
 data_dir: /var/lib/zookeeper
+
+# For init_limit and sync_limit check
+# Zookeeper documentation there :
+# https://zookeeper.apache.org/doc/r3.1.2/zookeeperStarted.html
+init_limit: 5
+sync_limit: 2
