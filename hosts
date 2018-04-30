@@ -19,3 +19,11 @@ kafka2
 [avro]
 avro1
 avro2
+
+; Consul is optional
+; We've put here the same list of hosts
+; as for Zookeeper but this can be changed.
+[consul]
+zookeeper1
+zookeeper2
+zookeeper3

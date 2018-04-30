@@ -1,0 +1,19 @@
+- name: Install Consul
+  yum: 
+    name: "consul"
+    state: latest
+    
+- name: Upload cluster settings file to Consul
+  vars:
+    server_list: "{{groups['consul']}}"
+  template: 
+    src: ../templates/cluster.json.j2
+    dest: /etc/consul.d/cluster.json
+     
+- name: Start Consul
+  service:
+    name: consul
+    enabled: yes
+    state: started
+  when: auto_start_services
+    

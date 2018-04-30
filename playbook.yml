@@ -12,4 +12,8 @@
   
 - hosts: avro
   roles:
-  - { role: avro }    
+  - { role: avro }
+  
+- hosts: consul
+  roles:
+  - { role: consul }    
