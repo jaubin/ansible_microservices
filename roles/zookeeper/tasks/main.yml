@@ -2,3 +2,11 @@
   yum: 
     name: "confluent-{{confluent_version}}-zookeeper"
     state: latest
+    
+- name: Create data directory for Zookeeper
+  file:
+    path: "{{data_dir}}"
+    state: directory
+    owner: cp-kafka
+    group: confluent
+    recurse: yes
