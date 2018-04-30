@@ -12,6 +12,7 @@ Then customize files in group_vars according to documentation, given that :
 Then customize the host file according to your needs.
 
 Finally you can run the playbook with command :
+
 ̀```bash
 ansible-playbook playbook.yml -i hosts --sudo --private-key=~/ssh/id_rsa
 ```
