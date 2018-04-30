@@ -1,0 +1,28 @@
+- name: Install Kafka
+  yum: 
+    name: "confluent-{{confluent_version}}-kafka"
+    state: latest
+    
+- name: Create data directory for Kafka
+  file:
+    path: "{{data_dir}}"
+    state: directory
+    owner: cp-kafka
+    group: confluent
+    recurse: yes
+    
+- name: Upload settings file to Kafka
+  vars:
+    broker_id: "{{groups.kafka.index(inventory_hostname) + 1}}"
+    zookeeper_list: "{{groups['zookeeper']}}"
+  template: 
+    src: ../templates/server.properties.j2
+    dest: /etc/kafka/server.properties
+     
+- name: Start Kafka
+  service:
+    name: confluent-kafka
+    enabled: yes
+    state: started
+  when: auto_start_services
+    

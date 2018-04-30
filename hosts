@@ -11,3 +11,7 @@ avro2
 zookeeper1
 zookeeper2
 zookeeper3
+
+[kafka]
+kafka1
+kafka2

@@ -12,6 +12,10 @@ confluent_version: 4.1
 # Change it if necessary
 zookeeper_port: 2181
 
+# The Kafka port
+# Change it if necessary
+kafka_port: 9092
+
 # Set this flag to true if you want services to be automatically started
 # after installation.
 auto_start_services: false
