@@ -1,3 +1,3 @@
-# The data directory used for Zookeeper
+# The data directory used for Kafka
 # You're actually unlikely to change it.
-data_dir: /var/lib/zookeeper
+data_dir: /var/lib/kafka
