@@ -16,3 +16,23 @@ Finally you can run the playbook with command :
 ```bash
 ansible-playbook playbook.yml -i hosts --sudo --private-key=~/ssh/id_rsa
 ```
+
+## Development resources
+
+If you want to develop without the need of many machines I've provided the docker-compose file I used, alongside the
+SSH key used to log on machines. All of this is in directory ```dev_resources```. The goal there is to make you save time
+when you wish to modify the playbooks.
+
+I strongly recommend that you put the ```dev_resources``` directory in some other location before playing with it.
+
+Some important notices :
+* The user used to log in on containers with SSH is ```app-admin```. The key to use for logging in is provided in the ```ssh``` subdirectory. This user has complete sudo rights.
+* You'll probably want to adjust the mapped directories. Make sure the volumes are bound in such a way that users in Docker containers have read-write access to each of the directories bound to docker containers.
+* In the control container, from which the playbook is expected to be run, you must first run the following commands :
+```bash
+sudo yum -y install ansible
+sudo mkdir ~app-admin/.ansible
+sudo chown -R app-admin:app-admin ~app-admin/.ansible
+```
+
+Happy hacking !
