@@ -13,6 +13,6 @@ Then customize the host file according to your needs.
 
 Finally you can run the playbook with command :
 
-̀```bash
+```bash
 ansible-playbook playbook.yml -i hosts --sudo --private-key=~/ssh/id_rsa
 ```
