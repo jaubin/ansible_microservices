@@ -1,0 +1,19 @@
+- name: Install Avro
+  yum: 
+    name: "confluent-{{confluent_version}}-schema-registry"
+    state: latest
+    
+- name: Upload settings file to Avro
+  vars:
+    zookeeper_list: "{{groups['zookeeper']}}"
+  template: 
+    src: ../templates/schema-registry.properties.j2
+    dest: /etc/schema-registry/schema-registry.properties
+     
+- name: Start Avro
+  service:
+    name: confluent-schema-registry
+    enabled: yes
+    state: started
+  when: auto_start_services
+    

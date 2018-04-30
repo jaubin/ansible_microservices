@@ -9,3 +9,7 @@
 - hosts: kafka
   roles:
   - { role: kafka }  
+  
+- hosts: avro
+  roles:
+  - { role: avro }    
