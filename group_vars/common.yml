@@ -1,0 +1,5 @@
+# The URL where our packages are stored.
+yum_repo_url: http://nexus:8081/repository/rpm_releases/
+
+# The user used to log onto servers.
+remote_user: app-admin
