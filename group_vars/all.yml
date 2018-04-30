@@ -7,3 +7,7 @@ remote_user: app-admin
 # The confluent version used
 # Check the versions for which you have a repo declared.
 confluent_version: 4.1
+
+# The Zookeeper port
+# Change it if necessary
+zookeeper_port: 2181

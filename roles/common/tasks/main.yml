@@ -1,3 +1,4 @@
-- template:
+- name: Configure YUM repos
+  template:
     src: ../templates/gojul_microservices.repo.j2
     dest: /etc/yum.repos.d/gojul_microservices.repo

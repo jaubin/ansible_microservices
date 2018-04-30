@@ -10,3 +10,11 @@
     owner: cp-kafka
     group: confluent
     recurse: yes
+    
+- name: Upload settings file to Zookeeper
+  vars:
+    server_list: "{{groups['zookeeper']}}"
+  template: 
+    src: ../templates/zookeeper.properties.j2
+    dest: /etc/kafka/zookeeper.properties
+    
