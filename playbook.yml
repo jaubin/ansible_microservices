@@ -9,6 +9,10 @@
 - hosts: kafka
   roles:
   - { role: kafka }  
+
+- hosts: kafka-rest
+  roles:
+  - { role: kafka-rest }   
   
 - hosts: avro
   roles:

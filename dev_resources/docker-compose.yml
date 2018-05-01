@@ -11,58 +11,50 @@ services:
    zookeeper1:
       image: "jdeathe/centos-ssh"
       tty: true
-      ports:
-      - "2222:22"   
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
    
    zookeeper2:
       image: "jdeathe/centos-ssh"
-      tty: true
-      ports:
-      - "2223:22"        
+      tty: true        
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
 
    zookeeper3:
       image: "jdeathe/centos-ssh"
-      tty: true
-      ports:
-      - "2224:22"        
+      tty: true      
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
 
    kafka1:
       image: "jdeathe/centos-ssh"
-      tty: true
-      ports:
-      - "2225:22"     
+      tty: true    
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
 
    kafka2:
       image: "jdeathe/centos-ssh"
-      tty: true
-      ports:
-      - "2226:22"    
+      tty: true   
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
       
    avro1:
       image: "jdeathe/centos-ssh"
-      tty: true
-      ports:
-      - "2227:22"    
+      tty: true  
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
       
    avro2:
       image: "jdeathe/centos-ssh"
       tty: true
-      ports:
-      - "2228:22"
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
+      
+   kafka-misc:
+      image: "jdeathe/centos-ssh"
+      tty: true
+      environment:
+      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"   
       
    control:
       image: "jdeathe/centos-ssh"

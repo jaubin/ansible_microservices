@@ -1,0 +1,19 @@
+- name: Install Kafka REST
+  yum: 
+    name: "confluent-{{confluent_version}}-kafka-rest"
+    state: latest
+    
+- name: Upload settings file to Kafka REST
+  vars:
+    kafka_list: "{{groups['kafka']}}"
+  template: 
+    src: ../templates/kafka-rest.properties.j2
+    dest: /etc/kafka-rest/kafka-rest.properties
+     
+- name: Start Kafka REST
+  service:
+    name: confluent-kafka-rest
+    enabled: yes
+    state: started
+  when: auto_start_services
+    

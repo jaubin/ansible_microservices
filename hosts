@@ -1,6 +1,7 @@
 [common]
 kafka1
 kafka2
+kafka-misc
 zookeeper1
 zookeeper2
 zookeeper3
@@ -15,6 +16,9 @@ zookeeper3
 [kafka]
 kafka1
 kafka2
+
+[kafka-rest]
+kafka-misc
 
 [avro]
 avro1
