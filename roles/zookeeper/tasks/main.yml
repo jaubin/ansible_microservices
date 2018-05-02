@@ -1,3 +1,9 @@
+- name: Check count of Zookeeper hosts
+  vars:
+    num_hosts: "{{ groups['zookeeper'] | length }}"
+  fail: msg="The count of Zookeeper hosts must be odd - found {{num_hosts | int}}"
+  when: num_hosts | int % 2 == 0
+
 - name: Install Zookeeper
   yum: 
     name: "confluent-{{confluent_version}}-zookeeper"
