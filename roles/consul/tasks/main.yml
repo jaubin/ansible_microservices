@@ -6,7 +6,7 @@
 
 - name: Install Consul
   yum: 
-    name: "consul"
+    name: "consul-server"
     state: latest
     
 - name: Upload cluster settings file to Consul
