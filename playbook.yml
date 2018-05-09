@@ -21,3 +21,7 @@
 - hosts: consul
   roles:
   - { role: consul }    
+
+- hosts: api-gateway
+  roles:
+  - { role: api-gateway }   

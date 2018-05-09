@@ -1,0 +1,32 @@
+- name: Check count of Consul hosts
+  vars:
+    num_hosts: "{{ groups['consul'] | length }}"
+  fail: msg="The count of Consul hosts must be greater than 0 - found {{num_hosts | int}}"
+  when: num_hosts | int <= 0
+
+- name: Install Consul Template
+  yum: 
+    name: "consul-template"
+    state: latest
+    
+- name: Upload consul client settings file to Consul
+  vars:
+    server_list: "{{groups['consul']}}"
+  template: 
+    src: ../templates/cluster-client.json.j2
+    dest: /etc/consul.d/cluster-client.json
+     
+- name: Start Consul
+  service:
+    name: consul
+    enabled: yes
+    state: started
+  when: auto_start_services
+  
+- name: Start Consul Template
+  service:
+    name: consul-template
+    enabled: yes
+    state: started
+  when: auto_start_services
+    

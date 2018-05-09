@@ -1,0 +1,4 @@
+{
+{% set comma = joiner(",") %}
+   "retry_join": [{% for host in server_list %}{{ comma() }}"{{host}}"{% endfor %}]
+}

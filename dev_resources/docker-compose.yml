@@ -56,6 +56,12 @@ services:
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"   
       
+   reverse-proxy:
+      image: "jdeathe/centos-ssh"
+      tty: true
+      environment:
+      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"   
+      
    control:
       image: "jdeathe/centos-ssh"
       tty: true
