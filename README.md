@@ -1,6 +1,8 @@
 # ansible_microservices
 Ansible microservices repo contains ansible recipes to make it easier to deploy a full Kafka infrastructure with service discovery. It relies heavily on repo https://www.github.com/jaubin/rhelbuildtools
 
+It requires Ansible 2.4+ to run, which is provided on RHEL 7 and Debian stable through backports.
+
 ## How-to run
 First of all, upload the RPM packages generated in https://www.github.com/jaubin/rhelbuildtools to a Yum repo.
 
@@ -46,5 +48,21 @@ The password to use is ```secret```.
 
 Note that you must ensure that your Docker containers can reach Internet, as the playbook will install packages from YUM repos. Linux users will also need to reconfigure their firewall to allow
 network communications from / to the containers.
+
+### Testing service discovery
+
+First of all compile the app within folder ```test_app_dir/test_app``` using command ```mvn clean install```. It is assumed that Maven is installed on your workstation.
+
+From within Docker, connect to the app-test container using command :
+```
+ssh user@app-test
+```
+The password is ```secret```.
+
+Inside the container run :
+```
+sudo yum -y install curl java-1.8.0-openjdk-devel
+/appdir/test_app/start_app.sh
+```
 
 Happy hacking !
