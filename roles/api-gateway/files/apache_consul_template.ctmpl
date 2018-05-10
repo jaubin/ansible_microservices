@@ -1,10 +1,13 @@
-{{range $tag, $service := service "web" | byTag}}
-# "{{$tag}}" api providers.
-<Proxy balancer://{{$tag}}>
-{{range $service}}  BalancerMember http://{{.Address}}:{{.Port}}
+{{range services}}
+  {{ if ne .Name "consul" }}
+# "{{$.Name}}" api providers.
+<Proxy balancer://{{.Name}}>
+{{range service .Name}}  BalancerMember http://{{.Address}}:{{.Port}}
 {{end}} ProxySet lbmethod=bybusyness
 </Proxy>
-Redirect permanent /api/{{$tag}} /api/{{$tag}}/
-ProxyPass /api/{{$tag}}/ balancer://{{$tag}}/
-ProxyPassReverse /api/{{$tag}}/ balancer://{{$tag}}/
+Redirect permanent /api/{{.Name}} /api/{{.Name}}/
+ProxyPass /api/{{.Name}}/ balancer://{{.Name}}/
+ProxyPassReverse /api/{{.Name}}/ balancer://{{.Name}}/
+  {{end}}
 {{end}}
+
