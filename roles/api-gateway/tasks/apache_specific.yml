@@ -1,0 +1,27 @@
+- name: Install Apache server
+  yum:
+    name: "httpd"
+    state: "latest"
+    
+- name: Start Apache service
+  service:
+    name: httpd
+    enabled: yes
+    state: started
+  when: auto_start_services
+    
+- name: Upload template for Consul-template
+  copy:
+    src: "../files/apache_consul_template.ctmpl"
+    dest: "/etc/consul-templates/apache_consul_template.ctmpl"
+    owner: root
+    group: root
+    mode: 0644
+    
+- name: Upload settings for Consul-template
+  copy:
+    src: "../files/apache_consul_template_settings.hcl"
+    dest: "/etc/consul-template.d/apache_consul_template_settings.hcl"
+    owner: root
+    group: root
+    mode: 0644

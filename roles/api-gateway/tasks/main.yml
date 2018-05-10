@@ -15,6 +15,14 @@
   template: 
     src: ../templates/cluster-client.json.j2
     dest: /etc/consul.d/cluster-client.json
+    
+- name: Ensure directory consul-templates exist
+  file: 
+    path: "/etc/consul-templates"
+    recurse: yes
+    state: "directory"
+    
+- import_tasks: apache_specific.yml    
      
 - name: Start Consul
   service:
