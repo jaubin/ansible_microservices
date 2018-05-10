@@ -20,6 +20,6 @@ kafka_port: 9092
 # Change it if necessary
 avro_port: 8081
 
-# Set this flag to true if you want services to be automatically started
+# Set this flag to false if you do not want services to be automatically started
 # after installation.
-auto_start_services: false
+auto_start_services: true

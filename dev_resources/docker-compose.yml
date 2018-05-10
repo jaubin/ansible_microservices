@@ -9,58 +9,84 @@ services:
       - ./nexus-data:/nexus-data
    
    zookeeper1:
-      image: "jdeathe/centos-ssh"
+      image: "andrefernandes/docker-systemd-sshd"
       tty: true
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN
    
    zookeeper2:
-      image: "jdeathe/centos-ssh"
-      tty: true        
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
+      image: "andrefernandes/docker-systemd-sshd"
+      tty: true
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN
 
    zookeeper3:
-      image: "jdeathe/centos-ssh"
-      tty: true      
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
+      image: "andrefernandes/docker-systemd-sshd"
+      tty: true
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN
 
    kafka1:
-      image: "jdeathe/centos-ssh"
-      tty: true    
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
+      image: "andrefernandes/docker-systemd-sshd"
+      tty: true
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN
 
    kafka2:
-      image: "jdeathe/centos-ssh"
-      tty: true   
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
+      image: "andrefernandes/docker-systemd-sshd"
+      tty: true
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN
       
    avro1:
-      image: "jdeathe/centos-ssh"
-      tty: true  
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
+      image: "andrefernandes/docker-systemd-sshd"
+      tty: true
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN
       
    avro2:
-      image: "jdeathe/centos-ssh"
+      image: "andrefernandes/docker-systemd-sshd"
       tty: true
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN
       
    kafka-misc:
-      image: "jdeathe/centos-ssh"
+      image: "andrefernandes/docker-systemd-sshd"
       tty: true
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"   
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN   
       
    reverse-proxy:
-      image: "jdeathe/centos-ssh"
+      image: "andrefernandes/docker-systemd-sshd"
       tty: true
-      environment:
-      - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"   
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN   
+      
+   app-test:
+      image: "andrefernandes/docker-systemd-sshd"
+      tty: true
+      volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+      - SYS_ADMIN   
       
    control:
       image: "jdeathe/centos-ssh"

@@ -26,14 +26,24 @@ when you wish to modify the playbooks.
 I strongly recommend that you put the ```dev_resources``` directory in some other location before playing with it.
 
 Some important notices :
-* The user used to log in on containers with SSH is ```app-admin```. The key to use for logging in is provided in the ```ssh``` subdirectory. This user has complete sudo rights.
+* The user used to log in on the control with SSH is ```app-admin```. The key to use for logging in is provided in the ```ssh``` subdirectory. This user has complete sudo rights. In order to log onto the Control container use command :
+```
+ssh -p 2229 -i ssh/id_rsa -o StrictHostKeyChecking=no app-admin@localhost
+```
 * You'll probably want to adjust the mapped directories. Make sure the volumes are bound in such a way that users in Docker containers have read-write access to each of the directories bound to docker containers.
 * In the control container, from which the playbook is expected to be run, you must first run the following commands :
 ```bash
 sudo yum -y install ansible
 sudo mkdir ~app-admin/.ansible
 sudo chown -R app-admin:app-admin ~app-admin/.ansible
+export ANSIBLE_HOST_KEY_CHECKING=False
 ```
+Then you can run the playbook with command :
+```
+ansible-playbook playbook.yml -i hosts -u user --ask-pass --sudo
+```
+The password to use is ```secret```.
+
 Note that you must ensure that your Docker containers can reach Internet, as the playbook will install packages from YUM repos. Linux users will also need to reconfigure their firewall to allow
 network communications from / to the containers.
 
