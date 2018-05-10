@@ -86,7 +86,9 @@ services:
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
-      - SYS_ADMIN   
+      - SYS_ADMIN  
+      volumes:
+      - "./test_app_dir:/appdir"
       
    control:
       image: "jdeathe/centos-ssh"
