@@ -19,10 +19,10 @@ server {
     stub_status;
   }
 
-{{range services}} {{$name := .Name}}
+{{range services}} {{$name := .Name}} {{$service := service .Name}}
   {{ if ne $name "consul" }}
-  location /{{$name}} {
-    proxy_pass http://{{$name}};
+  location /api/{{$name}} {
+    {{range $service}}proxy_pass http://{{.Address}}:{{.Port}}/{{$name}};{{end}}
   }
   {{end}}
 {{end}}

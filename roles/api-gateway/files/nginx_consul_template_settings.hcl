@@ -10,7 +10,7 @@ template {
   # This is the destination path on disk where the source template will render.
   # If the parent directories do not exist, Consul Template will attempt to
   # create them, unless create_dest_dirs is false.
-  destination = "/etc/httpd/conf.d/nginx_consul.conf"
+  destination = "/etc/nginx/conf.d/nginx_consul.conf"
 
   # This options tells Consul Template to create the parent directories of the
   # destination path if they do not exist. The default value is true.
