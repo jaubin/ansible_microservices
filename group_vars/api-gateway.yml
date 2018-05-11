@@ -1,0 +1,5 @@
+# The reverse proxy to use.
+# Possible values are :
+# apache
+# nginx
+reverse_proxy: apache

@@ -1,0 +1,32 @@
+- name: Install EPEL release repos
+  yum:
+    name: "epel-release"
+    state: "latest"
+
+- name: Install NGINX server
+  yum:
+    name: "nginx"
+    state: "latest"
+    
+- name: Start NGINX service
+  service:
+    name: nginx
+    enabled: yes
+    state: started
+  when: auto_start_services
+    
+- name: Upload template for Consul-template
+  copy:
+    src: "../files/nginx_consul_template.ctmpl"
+    dest: "/etc/consul-templates/nginx_consul_template.ctmpl"
+    owner: root
+    group: root
+    mode: 0644
+    
+- name: Upload settings for Consul-template
+  copy:
+    src: "../files/nginx_consul_template_settings.hcl"
+    dest: "/etc/consul-template.d/nginx_consul_template_settings.hcl"
+    owner: root
+    group: root
+    mode: 0644
