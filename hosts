@@ -1,3 +1,11 @@
+; IMPORTANT NOTICE : if you want to use
+; Confluent 4.1+, you must ensure your hosts
+; are running under RHEL 7+.
+; By the way this playbook requires Ansible 2.4+
+; provided by RHEL 7+ and Debian Stretch through 
+; backports.
+
+; Put all your hosts in that group.
 [common]
 kafka1
 kafka2
@@ -9,18 +17,33 @@ avro1
 avro2
 reverse-proxy
 
+; The number of Zookeeper instances
+; must be odd.
+; To ensure high availability you
+; must have at least 3 Zookeeper instances.
 [zookeeper]
 zookeeper1
 zookeeper2
 zookeeper3
 
+; Your Kafka instances.
+; To ensure high availability you must
+; have at least 2 Kafka instances.
 [kafka]
 kafka1
 kafka2
 
+; The Kafka REST servers. These ones
+; are optional, but useful notably
+; for monitoring purposes.
 [kafka-rest]
 kafka-misc
 
+; The schema registry servers. To
+; ensure high availability you must have
+; at least two of them. By the way they
+; should not be located on the same hosts
+; as your Kafka machines.
 [avro]
 avro1
 avro2
@@ -28,6 +51,10 @@ avro2
 ; Consul is optional
 ; We've put here the same list of hosts
 ; as for Zookeeper but this can be changed.
+; As for Zookeeper the number of Consul instances
+; must be odd.
+; To ensure high availability you must have
+; at least 3 of them.
 [consul]
 zookeeper1
 zookeeper2
@@ -35,5 +62,9 @@ zookeeper3
 
 ; API Gateway is optional
 ; It must be used in conjunction with Consul.
+; Note that the provided templates assume the
+; API gateway is running under RHEL 7+.
+; To ensure high availability put at least 2 instances
+; behind a load balancer (F5, HAProxy, ...)
 [api-gateway]
 reverse-proxy
