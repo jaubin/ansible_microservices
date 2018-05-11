@@ -7,7 +7,15 @@
   yum:
     name: "nginx"
     state: "latest"
-    
+   
+- name: Upload NGINX conf to allow modular settings
+  copy:
+    src: "../files/nginx.conf"
+    dest: "/etc/nginx/nginx.conf"
+    owner: root
+    group: root
+    mode: 0644
+   
 - name: Start NGINX service
   service:
     name: nginx
