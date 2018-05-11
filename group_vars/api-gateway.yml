@@ -1,3 +1,8 @@
+# Note : the provided templates
+# only work for RHEL 7. This is due
+# to a bug in command service XXX reload
+# with systemd.
+
 # The reverse proxy to use.
 # Possible values are :
 # apache

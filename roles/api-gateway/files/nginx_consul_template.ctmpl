@@ -22,7 +22,7 @@ server {
 {{range services}} {{$name := .Name}} {{$service := service .Name}}
   {{ if ne $name "consul" }}
   location /api/{{$name}} {
-    {{range $service}}proxy_pass http://{{.Address}}:{{.Port}}/{{$name}};{{end}}
+    {{range $service}}proxy_pass http://{{.Address}}:{{.Port}}/;{{end}}
   }
   {{end}}
 {{end}}
