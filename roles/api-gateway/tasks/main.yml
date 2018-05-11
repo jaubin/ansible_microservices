@@ -22,8 +22,12 @@
     recurse: yes
     state: "directory"
     
-- import_tasks: apache_specific.yml    
-     
+- import_tasks: apache_specific.yml
+  when: reverse_proxy == 'apache'
+
+- import_tasks: nginx_specific.yml
+  when: reverse_proxy == 'nginx'
+  
 - name: Start Consul
   service:
     name: consul
