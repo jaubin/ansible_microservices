@@ -16,7 +16,7 @@
     broker_id: "{{groups.kafka.index(inventory_hostname) + 1}}"
     zookeeper_list: "{{groups['zookeeper']}}"
   template: 
-    src: ../templates/server.properties.j2
+    src: server.properties.j2
     dest: /etc/kafka/server.properties
      
 - name: Start Kafka

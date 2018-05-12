@@ -7,7 +7,7 @@
   vars:
     kafka_list: "{{groups['kafka']}}"
   template: 
-    src: ../templates/kafka-rest.properties.j2
+    src: kafka-rest.properties.j2
     dest: /etc/kafka-rest/kafka-rest.properties
      
 - name: Start Kafka REST

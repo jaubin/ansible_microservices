@@ -13,7 +13,7 @@
   vars:
     server_list: "{{groups['consul']}}"
   template: 
-    src: ../templates/cluster-client.json.j2
+    src: cluster-client.json.j2
     dest: /etc/consul.d/cluster-client.json
     
 - name: Ensure directory consul-templates exist

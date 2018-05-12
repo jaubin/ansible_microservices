@@ -10,7 +10,7 @@
    
 - name: Upload NGINX conf to allow modular settings
   copy:
-    src: "../files/nginx.conf"
+    src: "nginx.conf"
     dest: "/etc/nginx/nginx.conf"
     owner: root
     group: root
@@ -25,7 +25,7 @@
     
 - name: Upload template for Consul-template
   copy:
-    src: "../files/nginx_consul_template.ctmpl"
+    src: "nginx_consul_template.ctmpl"
     dest: "/etc/consul-templates/nginx_consul_template.ctmpl"
     owner: root
     group: root
@@ -33,7 +33,7 @@
     
 - name: Upload settings for Consul-template
   copy:
-    src: "../files/nginx_consul_template_settings.hcl"
+    src: "nginx_consul_template_settings.hcl"
     dest: "/etc/consul-template.d/nginx_consul_template_settings.hcl"
     owner: root
     group: root

@@ -7,7 +7,7 @@
   vars:
     zookeeper_list: "{{groups['zookeeper']}}"
   template: 
-    src: ../templates/schema-registry.properties.j2
+    src: schema-registry.properties.j2
     dest: /etc/schema-registry/schema-registry.properties
      
 - name: Start Avro

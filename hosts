@@ -5,18 +5,6 @@
 ; provided by RHEL 7+ and Debian Stretch through 
 ; backports.
 
-; Put all your hosts in that group.
-[common]
-kafka1
-kafka2
-kafka-misc
-zookeeper1
-zookeeper2
-zookeeper3
-avro1
-avro2
-reverse-proxy
-
 ; The number of Zookeeper instances
 ; must be odd.
 ; To ensure high availability you

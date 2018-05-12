@@ -21,7 +21,7 @@
   vars:
     server_list: "{{groups['zookeeper']}}"
   template: 
-    src: ../templates/zookeeper.properties.j2
+    src: zookeeper.properties.j2
     dest: /etc/kafka/zookeeper.properties
     
 - name: Assign ID to each Zookeeper instance
