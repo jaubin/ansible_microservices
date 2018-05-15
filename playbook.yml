@@ -1,3 +1,9 @@
+# While invoking roles for the
+# common group is avoidable, it
+# can still be useful for machines
+# that do not have a role in the cluster
+# infrastructure but that will benefit
+# from our custom RPM repo.
 - hosts: common
   roles:
   - { role: common }
