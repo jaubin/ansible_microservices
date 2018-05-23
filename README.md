@@ -16,7 +16,7 @@ Then customize the host file according to your needs.
 Finally you can run the playbook with command :
 
 ```bash
-ansible-playbook playbook.yml -i hosts --sudo --private-key=~/ssh/id_rsa
+ansible-playbook playbook.yml -i inventory/<your_env>/hosts --sudo --private-key=~/ssh/id_rsa
 ```
 
 ## Development resources
@@ -42,7 +42,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 ```
 Then you can run the playbook with command :
 ```
-ansible-playbook playbook.yml -i hosts -u user --ask-pass --sudo
+ansible-playbook playbook.yml -i inventory/devel/hosts -u user --ask-pass --sudo
 ```
 The password to use is ```secret```.
 
