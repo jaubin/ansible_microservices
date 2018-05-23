@@ -6,12 +6,12 @@ It requires Ansible 2.4+ to run, which is provided on RHEL 7 and Debian stable t
 ## How-to run
 First of all, upload the RPM packages generated in https://www.github.com/jaubin/rhelbuildtools to a Yum repo.
 
-Then customize files in group_vars according to documentation, given that :
+Then customize files in ```inventory/<your_env>/group_vars``` according to documentation, given that :
 * zookeeper group is intended for Zookeeper hosts
 * kafka group is intended for Kafka hosts
 * avro group is intended for Avro hosts
 
-Then customize the host file according to your needs.
+Then customize the ```inventory/<your_env>/hosts``` file according to your needs.
 
 Finally you can run the playbook with command :
 
