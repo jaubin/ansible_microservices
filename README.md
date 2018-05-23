@@ -9,7 +9,7 @@ First of all, upload the RPM packages generated in https://www.github.com/jaubin
 Then customize files in ```inventory/<your_env>/group_vars``` according to documentation, given that :
 * zookeeper group is intended for Zookeeper hosts
 * kafka group is intended for Kafka hosts
-* avro group is intended for Avro hosts
+* api-gateway is intended for the API gateway hosts
 
 Then customize the ```inventory/<your_env>/hosts``` file according to your needs.
 
