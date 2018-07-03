@@ -1,0 +1,15 @@
+galaxy_info:
+   author: Julien AUBIN
+   description: Playbook for deployment of a Kafka cluster with service discovery
+   license: LGPL-3.0
+   min_ansible_version: 2.4
+   platforms:
+     - name: CentOS/RHEL
+       versions:
+       - 6.x
+       - 7.x
+   categories:
+     - web
+     - microservices
+     - kafka
+dependencies: []
