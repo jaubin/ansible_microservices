@@ -2,7 +2,8 @@
   template:
     src: templates/gojul_microservices.repo.j2
     dest: /etc/yum.repos.d/gojul_microservices.repo
- 
+    mode: 0644
+
 # From time to time we have crap in the local cache.
 # The goal here is to remove that crap.
 - name: Cleaning yum cache

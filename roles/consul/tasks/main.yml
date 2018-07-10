@@ -15,6 +15,7 @@
   template: 
     src: cluster.json.j2
     dest: /etc/consul.d/cluster.json
+    mode: 0644
      
 - name: Start Consul
   service:
