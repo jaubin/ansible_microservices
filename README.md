@@ -42,10 +42,8 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 ```
 Then you can run the playbook with command :
 ```
-ansible-playbook playbook.yml -i inventory/devel/hosts -u user --ask-pass --sudo
+ansible-playbook playbook.yml -i inventory/devel/hosts -u user --become -e "ansible_ssh_pass=secret"
 ```
-The password to use is ```secret```.
-
 Note that you must ensure that your Docker containers can reach Internet, as the playbook will install packages from YUM repos. Linux users will also need to reconfigure their firewall to allow
 network communications from / to the containers.
 
