@@ -1,7 +1,8 @@
 - name: Check count of Consul hosts
   vars:
     num_hosts: "{{ groups['consul'] | length }}"
-  fail: msg="The count of Consul hosts must be greater than 0 - found {{num_hosts | int}}"
+  fail: 
+    msg: "The count of Consul hosts must be greater than 0 - found {{num_hosts | int}}"
   when: num_hosts | int <= 0
 
 - name: Install Consul Template
