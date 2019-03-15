@@ -47,6 +47,14 @@
     mode: 0644
   when: num_hosts | int > 1
      
+- name: Remove cluster settings for standalone Consul
+  vars:
+    num_hosts: "{{ groups['consul'] | length }}"
+  file:
+    path: /etc/consul.d/cluster.json
+    state: absent
+  when: num_hosts | int == 1
+
 - name: Start Consul
   service:
     name: consul

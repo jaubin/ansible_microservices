@@ -51,6 +51,12 @@
     mode: 0644
   when: use_consul_client
 
+- name: Remove consul client settings for standalone mode
+  file:
+    path: /etc/consul.d/cluster-client.json
+    state: absent
+  when: not use_consul_client
+
 - name: Ensure directory consul-templates exist
   file: 
     path: "/etc/consul-templates"
