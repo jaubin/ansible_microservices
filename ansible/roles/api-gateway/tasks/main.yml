@@ -25,7 +25,7 @@
   vars:
     num_hosts: "{{ groups['consul'] | length }}"
   yum:
-    name: "consul-client-{{ gojul_version }}"
+    name: "consul-client-{{ gojulrpm_version }}"
     state: present
   when: use_consul_client
 
@@ -33,7 +33,7 @@
   vars:
     num_hosts: "{{ groups['consul'] | length }}"
   yum:
-    name: "consul-standalone-{{ gojul_version }}"
+    name: "consul-standalone-{{ gojulrpm_version }}"
     state: present
   when: not use_consul_client
 
