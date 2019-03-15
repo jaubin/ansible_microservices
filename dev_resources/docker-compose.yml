@@ -11,6 +11,7 @@ services:
    zookeeper1:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -19,6 +20,7 @@ services:
    zookeeper2:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -27,6 +29,7 @@ services:
    zookeeper3:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -35,6 +38,7 @@ services:
    kafka1:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -43,6 +47,7 @@ services:
    kafka2:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -51,6 +56,7 @@ services:
    avro1:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -59,6 +65,7 @@ services:
    avro2:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -67,6 +74,7 @@ services:
    kafka-misc:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -75,6 +83,7 @@ services:
    reverse-proxy:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
@@ -83,6 +92,7 @@ services:
    app-test:
       image: "andrefernandes/docker-systemd-sshd"
       tty: true
+      privileged: true
       volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       cap_add:
