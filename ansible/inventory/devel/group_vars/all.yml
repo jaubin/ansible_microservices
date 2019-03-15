@@ -2,7 +2,7 @@
 yum_repo_url: http://nexus:8081/repository/rpm/
 
 # The version of packages to use
-gojulrpm_version: 1.0.37
+gojulrpm_version: 1.0.38
 
 # The user used to log onto servers.
 remote_user: app-admin
