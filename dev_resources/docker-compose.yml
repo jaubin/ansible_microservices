@@ -6,7 +6,7 @@ services:
       ports:
       - "8081:8081"
       volumes:
-      - ./nexus-data:/nexus-data
+      - /tmp/nexus-data:/nexus-data
    
    zookeeper1:
       image: "andrefernandes/docker-systemd-sshd"
@@ -96,7 +96,7 @@ services:
       ports:
       - "2229:22"
       volumes:
-      - /home/julien/Documents/ansible:/home/app-admin/ansible
+      - ../ansible:/home/app-admin/ansible
       - ./ssh:/home/app-admin/ssh
       environment:
       - "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL"
