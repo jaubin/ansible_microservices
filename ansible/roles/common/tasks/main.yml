@@ -10,6 +10,7 @@
   command: yum clean all
   args:
     warn: no    
+  when: purge_yum_cache
     
 - name: Configure YUM to avoid RPMDb checksum errors
   yum: 

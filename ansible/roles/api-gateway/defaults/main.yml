@@ -1,0 +1,2 @@
+reverse_proxy: apache
+use_consul_client: true

@@ -5,10 +5,42 @@
     msg: "The count of Consul hosts must be greater than 0 - found {{num_hosts | int}}"
   when: num_hosts | int <= 0
 
+- name: Remove Consul Client
+  vars:
+    num_hosts: "{{ groups['consul'] | length }}"
+  yum:
+    name: "consul-client"
+    state: absent
+  when: not use_consul_client
+
+- name: Remove Consul Standalone
+  vars:
+    num_hosts: "{{ groups['consul'] | length }}"
+  yum:
+    name: "consul-standalone"
+    state: absent
+  when: use_consul_client
+
+- name: Install Consul Client
+  vars:
+    num_hosts: "{{ groups['consul'] | length }}"
+  yum:
+    name: "consul-client-{{ gojul_version }}"
+    state: present
+  when: use_consul_client
+
+- name: Install Consul Standalone
+  vars:
+    num_hosts: "{{ groups['consul'] | length }}"
+  yum:
+    name: "consul-standalone-{{ gojul_version }}"
+    state: present
+  when: not use_consul_client
+
 - name: Install Consul Template
   yum: 
-    name: "consul-template"
-    state: latest
+    name: "consul-template-{{ gojulrpm_version }}"
+    state: present
     
 - name: Upload consul client settings file to Consul
   vars:
@@ -17,6 +49,7 @@
     src: cluster-client.json.j2
     dest: /etc/consul.d/cluster-client.json
     mode: 0644
+  when: use_consul_client
 
 - name: Ensure directory consul-templates exist
   file: 

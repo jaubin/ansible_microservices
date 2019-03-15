@@ -1,7 +1,7 @@
 - name: Install Avro
   yum: 
-    name: "confluent-{{confluent_version}}-schema-registry"
-    state: latest
+    name: "confluent-{{confluent_version}}-schema-registry-{{ gojulrpm_version }}"
+    state: present
     
 - name: Upload settings file to Avro
   vars:

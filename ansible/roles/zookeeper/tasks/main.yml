@@ -7,8 +7,8 @@
 
 - name: Install Zookeeper
   yum: 
-    name: "confluent-{{confluent_version}}-zookeeper"
-    state: latest
+    name: "confluent-{{confluent_version}}-zookeeper-{{ gojulrpm_version }}"
+    state: present
     
 - name: Create data directory for Zookeeper
   file:

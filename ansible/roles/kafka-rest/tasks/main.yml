@@ -1,7 +1,7 @@
 - name: Install Kafka REST
   yum: 
-    name: "confluent-{{confluent_version}}-kafka-rest"
-    state: latest
+    name: "confluent-{{confluent_version}}-kafka-rest-{{ gojulrpm_version }}"
+    state: present
     
 - name: Upload settings file to Kafka REST
   vars:

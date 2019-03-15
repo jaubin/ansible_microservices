@@ -25,16 +25,16 @@
   vars:
     num_hosts: "{{ groups['consul'] | length }}"
   yum: 
-    name: "consul-server"
-    state: latest
+    name: "consul-server-{{ gojulrpm_version }}"
+    state: present
   when: num_hosts | int > 1
 
 - name: Install Consul standalone
   vars:
     num_hosts: "{{ groups['consul'] | length }}"
   yum: 
-    name: "consul-standalone"
-    state: latest
+    name: "consul-standalone-{{ gojulrpm_version }}"
+    state: present
   when: num_hosts | int == 1
    
 - name: Upload cluster settings file to Consul

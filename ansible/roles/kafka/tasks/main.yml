@@ -1,7 +1,7 @@
 - name: Install Kafka
   yum: 
-    name: "confluent-{{confluent_version}}-kafka"
-    state: latest
+    name: "confluent-{{confluent_version}}-kafka-{{ gojulrpm_version }}"
+    state: present
     
 - name: Create data directory for Kafka
   file:
