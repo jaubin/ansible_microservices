@@ -69,17 +69,20 @@
 - import_tasks: nginx_specific.yml
   when: reverse_proxy == 'nginx'
   
+# Is is safer to restart Consul client as its configuration
+# may have changed. Thus it appears that Consul does NOT reconnect
+# properly to a restarted cluster.
 - name: Start Consul
   service:
     name: consul
     enabled: yes
-    state: started
+    state: restarted
   when: auto_start_services
   
 - name: Start Consul Template
   service:
     name: consul-template
     enabled: yes
-    state: started
+    state: restarted
   when: auto_start_services
     

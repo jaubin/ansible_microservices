@@ -55,10 +55,12 @@
     state: absent
   when: num_hosts | int == 1
 
+# Consul settings may have changed. In that case we
+# must restart it.
 - name: Start Consul
   service:
     name: consul
     enabled: yes
-    state: started
+    state: restarted
   when: auto_start_services
     
