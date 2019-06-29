@@ -3,7 +3,7 @@
     name: "httpd"
     state: "latest"
 
-- name: Set MPM mode for Apache to worker 
+- name: Set MPM mode for Apache to worker
   copy:
     src: "00-mpm.conf"
     dest: "/etc/httpd/conf.modules.d/00-mpm.conf"
