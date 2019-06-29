@@ -2,6 +2,14 @@
   yum:
     name: "httpd"
     state: "latest"
+
+- name: Set MPM mode for Apache to worker 
+  copy:
+    src: "00-mpm.conf"
+    dest: "/etc/httpd/conf.modules.d/00-mpm.conf"
+    owner: root
+    group: root
+    mode: 0644
     
 - name: Start Apache service
   service:
