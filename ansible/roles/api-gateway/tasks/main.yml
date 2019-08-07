@@ -21,26 +21,25 @@
     state: absent
   when: use_consul_client
 
-- name: Install Consul Client
+- name: Install Consul Client and Consul Template
   vars:
     num_hosts: "{{ groups['consul'] | length }}"
   yum:
-    name: "consul-client-{{ gojulrpm_version }}"
+    name: 
+    - "consul-client-{{ gojulrpm_version }}"
+    - "consul-template-{{ gojulrpm_version }}"
     state: present
   when: use_consul_client
 
-- name: Install Consul Standalone
+- name: Install Consul Standalone and Consul Template
   vars:
     num_hosts: "{{ groups['consul'] | length }}"
   yum:
-    name: "consul-standalone-{{ gojulrpm_version }}"
+    name: 
+    - "consul-standalone-{{ gojulrpm_version }}"
+    - "consul-template-{{ gojulrpm_version }}"
     state: present
   when: not use_consul_client
-
-- name: Install Consul Template
-  yum: 
-    name: "consul-template-{{ gojulrpm_version }}"
-    state: present
     
 - name: Upload consul client settings file to Consul
   vars:
